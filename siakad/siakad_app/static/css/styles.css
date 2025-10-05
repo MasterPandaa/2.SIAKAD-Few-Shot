@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: #f9fafb; color: #111827; }
+.container { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+
+h1 { font-size: 28px; margin: 0 0 16px; }
+h2 { font-size: 20px; margin: 16px 0 12px; }
+
+.card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+.hidden { display: none; }
+
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 14px; color: #374151; margin-bottom: 6px; }
+.field input { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; }
+
+button { background: #2563eb; border: none; color: white; padding: 10px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+button:hover { background: #1d4ed8; }
+
+.stats { display: flex; gap: 12px; }
+.stat { flex: 1; background: #f3f4f6; border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; }
+.stat .label { color: #374151; }
+.stat .value { font-weight: 700; }

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laporan Nilai Kelas - {{ class_name }}</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <style>
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ddd; padding: 8px; font-size: 14px; }
+    th { background: #f3f4f6; }
+    h1 { margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Laporan Nilai Kelas: {{ class_name }}</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>NIS</th>
+          <th>Nama</th>
+          {% for code in subjects %}
+            <th>{{ code }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in students %}
+          <tr>
+            <td>{{ s.nis }}</td>
+            <td>{{ s.name }}</td>
+            {% for code in subjects %}
+              <td style="text-align:center">{{ '%.2f'|format(table.get(s.id, {}).get(code, 0.0)) }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
