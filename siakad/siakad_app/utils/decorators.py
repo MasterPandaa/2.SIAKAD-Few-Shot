@@ -1,6 +1,7 @@
 from functools import wraps
+
 from flask import jsonify
-from flask_jwt_extended import verify_jwt_in_request, get_jwt, get_jwt_identity
+from flask_jwt_extended import get_jwt, get_jwt_identity, verify_jwt_in_request
 from siakad_app.extensions import db
 from siakad_app.models import User
 
@@ -13,11 +14,13 @@ def roles_required(*roles):
         def decorator(*args, **kwargs):
             verify_jwt_in_request()
             claims = get_jwt()
-            role = claims.get('role')
+            role = claims.get("role")
             if role not in roles_set:
-                return jsonify({'error': 'Forbidden'}), 403
+                return jsonify({"error": "Forbidden"}), 403
             return fn(*args, **kwargs)
+
         return decorator
+
     return wrapper
 
 
